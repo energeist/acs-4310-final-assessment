@@ -80,7 +80,7 @@ async function loadData() {
 
   // BARS
   const barGroup = svg.append('g')
-    .attr("transform", `translate(${margin.left}, 0)`);
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   barGroup
     .selectAll('rect')
@@ -93,6 +93,18 @@ async function loadData() {
     .attr('width', xScale.bandwidth())
     .attr('height', d => height - yScale(d.score))
     .attr('fill', (d, i) => colourScale(i));
+
+  barGroup
+    .selectAll('.bar-label')
+    .data(data)
+    .enter()
+    .append('text')
+    .attr('class', 'bar-label')
+    .attr('x', d => xScale(d.countryOrRegion) + 20)
+    .attr('y', d => yScale(d.score) - 5)
+    .text(d => d.score)
+      .attr('font-size', '0.8rem')
+      .attr('font-family', 'helvetica');
 }
 
 loadData();
