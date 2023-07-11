@@ -3,11 +3,11 @@ async function loadData() {
 
   console.log(data);
 
-  data = data.sort((a,b) => a.overallRank - b.overallRank) // This is already sorted, but just for funsies here's a quicksort
+  data = data.sort((a,b) => a.overallRank - b.overallRank); // This is already sorted, but just for funsies here's a quicksort
 
   console.log(data);
 
-  data = data.filter(d => d.overallRank <= 10) // modified headers in data to be less awful to work with
+  data = data.filter(d => d.overallRank <= 10); // modified headers in data to be less awful to work with
 
   console.log(data);
 
@@ -41,7 +41,7 @@ async function loadData() {
   // DRAWING STUFF
   const svg = d3.select("#svg")
     .attr("width", width + margin.left + margin.right)
-    .attr("height", height + margin.top + margin.bottom)
+    .attr("height", height + margin.top + margin.bottom);
 
   // X AXIS
   svg.append('g')
@@ -51,7 +51,7 @@ async function loadData() {
     .attr("transform", "translate(-10, 0) rotate(-45)")
     .style("text-anchor", "end")
     .attr('font-size', '0.8rem')
-    .attr('font-family', 'helvetica')
+    .attr('font-family', 'helvetica');
 
   // X AXIS LABEL
   svg.append('text')
@@ -65,7 +65,7 @@ async function loadData() {
   // Y AXIS
   svg.append('g')
     .call(d3.axisLeft(yScale))
-    .attr("transform", `translate(${margin.left}, ${margin.top})`)
+    .attr("transform", `translate(${margin.left}, ${margin.top})`);
 
   // Y AXIS LABEL
   svg.append('text')
