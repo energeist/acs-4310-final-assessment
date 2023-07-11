@@ -1,6 +1,3 @@
-// Question 1: Can we visualize how global life expectancies have changed between 2000-2015?
-
-
 async function loadData() {
   let data = await d3.csv('./2019.csv');
 
@@ -15,7 +12,7 @@ async function loadData() {
   console.log(data);
 
   // d3 stuff here:
-  const margin = { top: 30, right: 125, bottom: 80, left: 100 };
+  const margin = { top: 30, right: 125, bottom: 100, left: 100 };
   const width = 800;
   const height = 550;
 
@@ -52,7 +49,9 @@ async function loadData() {
     .call(d3.axisBottom(xScale))
     .selectAll('text')
     .attr("transform", "translate(-10, 0) rotate(-45)")
-    .style("text-anchor", "end");
+    .style("text-anchor", "end")
+    .attr('font-size', '0.8rem')
+    .attr('font-family', 'helvetica')
 
   // X AXIS LABEL
   svg.append('text')
